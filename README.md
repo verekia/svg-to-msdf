@@ -62,8 +62,9 @@ const { layers, lineLayers, width, height } = await bakeSvgToMsdfLayered(svg, { 
 ### Render — vanilla three.js
 
 ```ts
-import { Mesh, PlaneGeometry, Scene } from 'three'
 import { MsdfBasicNodeMaterial } from 'svg-to-msdf'
+
+import { Mesh, PlaneGeometry, Scene } from 'three'
 
 const scene = new Scene()
 
@@ -98,8 +99,6 @@ for (const [i, layer] of lineLayers.entries()) {
 Register the materials once via R3F's `extend` so they become JSX elements:
 
 ```tsx
-// _app.tsx (or your root)
-import { extend } from '@react-three/fiber'
 import {
   MsdfBasicNodeMaterial,
   MsdfLambertNodeMaterial,
@@ -110,6 +109,9 @@ import {
   MsdfToonNodeMaterial,
   MsdfSpriteNodeMaterial,
 } from 'svg-to-msdf'
+
+// _app.tsx (or your root)
+import { extend } from '@react-three/fiber'
 
 extend({
   MsdfBasicNodeMaterial,
@@ -159,8 +161,9 @@ function Logo({ layers, lineLayers }) {
 For TypeScript, declare the JSX intrinsics once (e.g. in an ambient `r3f-msdf.d.ts`):
 
 ```ts
-import type { ThreeElement } from '@react-three/fiber'
 import type { MsdfBasicNodeMaterial /* ... and the other 7 */ } from 'svg-to-msdf'
+
+import type { ThreeElement } from '@react-three/fiber'
 
 declare module '@react-three/fiber' {
   interface ThreeElements {

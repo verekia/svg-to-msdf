@@ -92,12 +92,12 @@ The README is the authoritative description of the public API and SVG support �
 - `bun i` — install workspace deps.
 - `bun run --filter 'svg-to-msdf' build` — required before example typecheck/dev (example imports the built `dist/`).
 - `bun test` — runs `bun:test` against `library/src/__tests__/`. Only `pathParser`, `flatten`, `edgeColoring` are covered.
-- `bun run all` — lint (`oxlint`) + format check (`oxfmt`) + tests + typecheck across both packages.
+- `bun run all` — lint (`oxlint`) + format check (`bun fmt`) + tests + typecheck across both packages.
 - `bun run dev` — runs both packages in parallel (`tsup --watch` + `next dev`).
 
 ### Conventions
 
-- Formatter is `oxfmt`; linter is `oxlint`. Both must pass with no warnings introduced. Don't reformat untouched files.
+- Formatter is `bun fmt`; linter is `oxlint`. Both must pass with no warnings introduced. Don't reformat untouched files.
 - Style: ESM, no semicolons, single quotes, 2-space indent, named-export-only at module boundaries.
 - TypeScript: strict mode, `verbatimModuleSyntax`. Type-only imports use `import type`. Library has `noUncheckedIndexedAccess: false`; example has it `true` — don't rely on it being on while editing the library.
 - Comments: explain _why_ something is non-obvious (an SVG-spec edge case, a perf reason, a cross-module invariant). Don't restate what the code does.
